@@ -1,5 +1,5 @@
 Package: routliersutils
-Title: Cleaning and Doing Initial Exploratory Data Analysis Specific to Outliers
+Title: Clean and Perform Initial Exploratory Data Analysis specific to Outliers
 Version: 0.0.0.9000
 Authors@R: 
     person("Karanpreet", "Kaur", role = c("aut", "cre"))
