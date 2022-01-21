@@ -1,4 +1,4 @@
-#' Title
+#' A function that plot out the given data with outliers marked.
 #'
 #' @param dataframe A target dataframe where the function is performed.
 #' @param columns The target columns where the function needed to be performed. Default is None, the function will check all columns.
