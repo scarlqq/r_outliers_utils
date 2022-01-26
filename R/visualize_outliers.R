@@ -17,12 +17,12 @@ library(ggplot2)
 visualize_outliers <- function(dataframe, columns=NA, type='violin') {
 
   ## Handle dataframe type error (Check if dataframe is of type Pandas DataFrame)
-  if (!is.data.frame(dataframe) & !is.tibble(dataframe)) {
+  if (!is.data.frame(dataframe) & !is_tibble(dataframe)) {
     stop("Passed dataframe should be DataFrame or tibble.")
   }
 
   ## Handle empty dataframe or dataframe with all NAN
-  if (is.null(dataframe)) {
+  if (nrow(dataframe) == 0) {
     stop("Passed dataframe is None.")
   }
 
@@ -55,7 +55,8 @@ visualize_outliers <- function(dataframe, columns=NA, type='violin') {
       labs(y = "Value", x = "Variables") +
       ggtitle("Data distribution") +
       theme_bw()+
-      theme(axis.text.x = element_text(angle = 90))
+      theme(axis.text.x = element_text(angle = 90),
+            legend.position = "none")
   } else if (type == 'boxplot') {
     p <- dataframe |>
       ggplot(aes(name, value)) +
@@ -64,7 +65,8 @@ visualize_outliers <- function(dataframe, columns=NA, type='violin') {
       labs(y = "Value", x = "Variables") +
       ggtitle("Data distribution") +
       theme_bw()+
-      theme(axis.text.x = element_text(angle = 90))
+      theme(axis.text.x = element_text(angle = 90),
+            legend.position = "none")
   }
 
   ## Return plot
